@@ -1,0 +1,23 @@
+sout    输出   or 'string'.sout
+psvm   主方法
+fori   for 循环   or int[] arr = [1,24,] arr.fori + tab
+
+com + shift + u  大小写；
+com + shift + enter 错误补全；
+
+com + alt + b 查看抽象方法的实现；
+com + alt + space 类名提示；
+com + alt + l 格式化代码；
+com + alt + o 优化导包；
+
+
+com + o 重写父类方法；
+com + i 重写接口方法；
+com + d 复制；
+com + h 查看类的继承体系；
+com + n 快速打开类；
+com + 句点 代码提示；
+
+alt + enter 快速修复 导包 生成局部变量
+alt + insert  生成构造器／Getter/Setter等；
+alt + up  alt +down 方法间快速移动等；
