@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Home from './views/Home.vue'
 import Login from './views/Login.vue';
-import Goods from './views/Goods.vue';
+import Cart from './views/Cart.vue';
 
 import store from './store'
 
@@ -25,10 +25,10 @@ const router = new Router({
       component: Login
     },
     {
-      path: '/goods',
-      name: 'goods',
-      meta: { auth: true },
-      component: Goods
+      path: '/cart',
+      name: 'cart',
+      // meta: { auth: true },
+      component: Cart
     },
     {
       path: '/about',

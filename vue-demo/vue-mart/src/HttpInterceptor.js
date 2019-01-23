@@ -24,8 +24,6 @@ axios.interceptors.response.use(res => {
   return res;
 }, error => {
   if(error.response.status === 401) { // 未授权
-    console.log('401');
-    console.log(error);
     clearHandler()
   }
 })
@@ -36,7 +34,6 @@ function clearHandler() {
   localStorage.removeItem('token');
   store.commit('setToken', '')
 
-  console.log(store.state)
   // 跳转页面
   router.push({
     path: '/login',

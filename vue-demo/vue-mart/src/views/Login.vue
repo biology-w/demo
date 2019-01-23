@@ -62,8 +62,11 @@
     methods: {
       async login(e) {
         e.preventDefault()
-        const res = await this.$axios.get('/api/login', {
-          params: { username: this.model.username, password: this.model.password }
+        // const res = await this.$axios.post('/api/login', {
+        //   params: { username: this.model.username, password: this.model.password }
+        // })
+        const res = await this.$axios.post('/api/login', {
+          username: this.model.username, password: this.model.password
         })
         console.log(res)
         const { code, token, message } = res.data
