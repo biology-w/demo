@@ -8,7 +8,7 @@
                 <div class="right">
                     <div class="title">{{item.title}}</div>
                     <div class="info">
-                        <i class="cubeic-add" @click.stop.prevent="addCart(item)"></i>
+                        <i class="cubeic-add" @click.stop.prevent="addCart($event, item)"></i>
                         <span>{{item.count}}</span>
                     </div>
                 </div>
@@ -21,8 +21,11 @@
   export default {
     props: ['goods'],
     methods: {
-      addCart(item) {
+      addCart($event, item) {
         this.$store.commit('addCart', item)
+
+        // 把点击事件派发出去
+        this.$emit('addCart', $event.target)
       },
       imgPreview(img) {
         this.$createImagePreview({

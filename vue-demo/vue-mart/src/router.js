@@ -5,9 +5,18 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue';
 import Cart from './views/Cart.vue';
 
+import History from './utils/history'
+
 import store from './store'
 
+Vue.use(History)
 Vue.use(Router)
+
+// 实例化之前，扩展Router
+Router.prototype.goBack = function() {
+  this.isBack = true
+  this.back()
+}
 
 const router = new Router({
   mode: 'history', // 使用历史模式
@@ -64,6 +73,18 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     next()
+  }
+})
+
+// 记录历史记录
+router.afterEach((to, from) => {
+  if(router.isBack) { // 后退
+    History.pop()
+    router.isBack = false
+    router.transitionName = 'route-back'
+  } else {
+    History.push(to.path)
+    router.transitionName = 'route-forward'
   }
 })
 
