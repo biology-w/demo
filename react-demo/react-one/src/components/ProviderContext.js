@@ -20,6 +20,7 @@ export const withProvider = Com => props => (
 )
 
 // add Consumer
+// 内部原理就是props.children(vlaue)：具体看Composition.js文件
 export const withConsumer = Com => props => (
     <Consumer>
         {/* 必须内嵌一个函数 */}

@@ -11,7 +11,7 @@ import ReactReduxTest from './components/ReactReduxTest'
 import ReactReduxTestTwo from './components/ReactReduxTestTwo'
 
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 
 import './App.css';
 
