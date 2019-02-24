@@ -1,15 +1,13 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+
+import CounterReducer  from './CounterReducer'
+import UserReducer  from './UserReducer'
 
 
-const reducer = (state = 0, action) => {
-    switch (action.type) {
-        case 'ADD':
-            return state + 1
-        case 'MINUS':
-            return state - 1
-        default:
-            return state
-    }
-}
 
-export default createStore(reducer)
+export default createStore(
+  combineReducers({ counter: CounterReducer, user: UserReducer }),
+  applyMiddleware(logger, thunk)
+)

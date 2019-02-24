@@ -3,8 +3,9 @@ import { Button } from 'antd'
 
 import store from '../store/store'
 
-export default class ReactReduxTestReduxTest extends Component {
+export default class ReduxTest extends Component {
   render() {
+    console.log(this.props)
     return (
       <div>
           <h1>Redux test</h1>

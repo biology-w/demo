@@ -6,9 +6,12 @@ import Composition from './components/Composition'
 import ProviderContext from './components/ProviderContext'
 import CrossLayProvider from './components/CrossLayProvider'
 import CrossLayProviderFn from './components/CrossLayProviderFn'
-import ReduxTest from './components/ReduxTest'
+// import ReduxTest from './components/ReduxTest'
 import ReactReduxTest from './components/ReactReduxTest'
 import ReactReduxTestTwo from './components/ReactReduxTestTwo'
+import ReactReduxTestThree from './components/ReactReduxTestThree'
+// import RouteOne from './components/RouteSample/RouteOne'
+import RouteSwitch from './components/RouteSample/RouteSwitch'
 
 
 // import logo from './logo.svg';
@@ -59,9 +62,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <RouteSwitch />
+          {/*<RouteOne />*/}
+          <ReactReduxTestThree />
           <ReactReduxTestTwo />
           <ReactReduxTest />
-          <ReduxTest />
+          {/*<ReduxTest />*/}
           <HOC tempName='hoc' />
           <Composition />
           <ProviderContext />
