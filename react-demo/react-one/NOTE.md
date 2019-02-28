@@ -17,4 +17,15 @@
       .getChildContext用来返回数据
       .定义childContextTypes声明
    .新版本上下文
-      .{ Provider, Consumer } = React.createContext()   
+      .{ Provider, Consumer } = React.createContext()
+      
+      
+5.jsx：什么是jsx；为什么需要jsx；怎么用；原理；
+    .是对js语法的扩展，可以是我们使用类似xml方式描述视图；
+    .执行快(在编译层进行了很多优化，最终编译的代码执行速度很快)
+    .类型安全
+    .简单快速
+    .原理：babel-loader会预编译jsx为React.createElement(type,props, ...children)
+
+
+6. diff算法：
