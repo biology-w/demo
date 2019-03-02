@@ -7,7 +7,8 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from './store/store'
+// import store from './store/store'
+import store from './store/sagaStore'
 
 // 直接使用redux的时候，要监听；才能更新
 // store.subscribe(() => {

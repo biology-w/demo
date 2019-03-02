@@ -6,6 +6,8 @@ export default (state = 0, action) => {
       return state + 1
     case 'MINUS':
       return state - 1
+    case 'LOGIN_SUCESS':
+      return
     default:
       return state
   }

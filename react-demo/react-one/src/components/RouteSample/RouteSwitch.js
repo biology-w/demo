@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
+import { Button } from "antd";
 import { Link, Route, Switch, Redirect } from "react-router-dom";
-import { login } from '../../store/UserReducer'
+import { sagaLogin } from '../../store/UserReducer'
 
 const Home = (props) => {
   console.log("接收参数：", props.location.state);
@@ -70,8 +71,8 @@ class PrivateRoute extends Component{
 
 //login
 @connect(
-  state => ({ isLogin: state.user.isLogin }),
-  { login }
+  state => ({ isLogin: state.user.isLogin, isFetching: state.user.isFetching }),
+  { sagaLogin }
 )
 class AuthLogin extends Component{
   render() {
@@ -83,7 +84,7 @@ class AuthLogin extends Component{
     return (
       <div>
         <p>请登陆</p>
-        <button onClick={this.props.login}>登陆</button>
+        <Button loading={this.props.isFetching} onClick={() => this.props.sagaLogin('1234id')}>登陆</Button>
       </div>
     )
   }
