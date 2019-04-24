@@ -10,14 +10,14 @@ import ChildrenTwo from './views/ChildrenTwo.vue'
 import store from './store.js';
 
 Vue.use(Router)
-function func ({params, query}) {
+function func({ params, query }) {
   return {
     id: params.id,
     msg: params.msg,
     foo: query.foo
   }
 }
-const router =  new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -38,7 +38,7 @@ const router =  new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
       beforeEnter(to, from, next) {
-        if(store.state.isLogin) {
+        if (store.state.isLogin) {
           next()
         } else {
           next('/login?redirect=' + to.path)
@@ -47,7 +47,7 @@ const router =  new Router({
     },
     {
       path: '/static',
-      props: { foo: 'static'}, //给组件传静态值
+      props: { foo: 'static' }, //给组件传静态值
       component: () => import(/* webpackChunkName: "static"*/ './views/About.vue')
     },
     {
@@ -67,10 +67,10 @@ const router =  new Router({
     {
       path: '/parent',
       component: Parent,
-    // redirect: '/about'
-    // beforeEnter(to, from, next) {
-    //   next()
-    // }
+      // redirect: '/about'
+      // beforeEnter(to, from, next) {
+      //   next()
+      // }
       children: [
         {
           path: 'children',
