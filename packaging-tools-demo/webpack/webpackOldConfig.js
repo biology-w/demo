@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
   // entry: './src/index.js',
   entry: {
-    app: './src/index.js'
+    app: ['./src/index.js', './src/index.js']
   },
   // 更容易地追踪错误和警告
   // source map 功能，将编译后的代码映射回原始源代码
