@@ -13,5 +13,69 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+
+    <script>
+        const sourceData = [
+          {
+            name: 'one',
+            code: 'one'
+          },
+          {
+            name: 'one',
+            code: 'two',
+            children: [
+              {
+                name: 'one-one',
+                code: 'one-one'
+              },
+              {
+                name: 'one-two',
+                code: 'one-two',
+                children: [
+                  {
+                    name: 'one-two-one',
+                    code: 'one-two-one'
+                  },
+                  {
+                    name: 'one-two-two',
+                    code: 'one-two-two-'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'three',
+            code: 'three'
+          }
+        ]
+
+
+        const handleObjByCode = (data, targetCode) => {
+
+          const getObj = (data, code, parent) => {
+            for(let i = 0, len = data.length; i < len; i++) {
+              data[i].parent = parent ? [...parent.parent, {name: parent.name, code: parent.code }] : []
+              if (data[i].code === code) {
+                return data[i]
+              } else {
+                if (data[i].children) {
+                  const target = getObj(data[i].children, code, data[i])
+                  if(target) {
+                    return target
+                  }
+                }
+              }
+            }
+          }
+
+          return getObj(data, targetCode);
+        }
+        const tempData = handleObjByCode(sourceData, 'two')
+        console.log('1-2')
+        console.log(tempData)
+        console.log(sourceData)
+    </script>
   </body>
 </html>

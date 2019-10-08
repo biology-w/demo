@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Select/>
     <!--<img alt="Vue logo" src="./assets/logo.png">-->
     <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <FormTest :title="title"></FormTest>
@@ -13,35 +14,37 @@
         <button @click="addGood(index)">添加</button>
       </li>
     </ul>
-    <Cart :name="name" />
+    <Cart :name="name"/>
     <KButton @testClick="handleChildren"></KButton>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
+import axios from "axios";
 
-  // import HelloWorld from './components/HelloWorld.vue'
-  import Cart from './components/Cart'
-  import FormTest from './components/UITest/FormTest'
-  import KButton from './components/UITest/KButton'
+// import HelloWorld from './components/HelloWorld.vue'
+import Select from "./components/Select/select";
+import Cart from "./components/Cart";
+import FormTest from "./components/UITest/FormTest";
+import KButton from "./components/UITest/KButton";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     // HelloWorld,
     Cart,
     FormTest,
-    KButton
+    KButton,
+    Select
   },
   data() {
     return {
-      name: 'test--购物车',
-      title: 'test--购物车',
+      name: "test--购物车",
+      title: "test--购物车",
       showName: false,
       goods: [],
-      text: ''
-    }
+      text: ""
+    };
   },
   async created() {
     // axios.get('/api/goods').then(res => {
@@ -51,33 +54,31 @@ export default {
     // })
     // 或者
     try {
-      const response = await axios.get('/api/goods')
-      this.goods = response.data.list
+      const response = await axios.get("/api/goods");
+      this.goods = response.data.list;
     } catch (e) {
       // error deal
     }
-
-
   },
   methods: {
     addGood(i) {
       const good = this.goods[i];
-      this.$root.$emit('addCart', good)
+      this.$root.$emit("addCart", good);
       // or
       // 使用Vue原型上的实例¥bus的方法
       // this.$bus.$emit('addCart', good)
     },
     handleChildren(data) {
-      console.log('handleChildren--data')
-      console.log(data)
+      console.log("handleChildren--data");
+      console.log(data);
     }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

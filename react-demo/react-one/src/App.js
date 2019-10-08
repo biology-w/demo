@@ -1,52 +1,55 @@
-import React, { Component } from 'react';
-import { Button } from 'antd'
+import React, { Component } from "react";
+import { Button } from "antd";
+import { Link, Route, Switch } from "react-router-dom";
 
-import HOC from './components/HOC'
-import Composition from './components/Composition'
-import ProviderContext from './components/ProviderContext'
-import CrossLayProvider from './components/CrossLayProvider'
-import CrossLayProviderFn from './components/CrossLayProviderFn'
+import HOC from "./components/HOC";
+import Composition from "./components/Composition";
+import ProviderContext from "./components/ProviderContext";
+import CrossLayProvider from "./components/CrossLayProvider";
+import CrossLayProviderFn from "./components/CrossLayProviderFn";
 // import ReduxTest from './components/ReduxTest'
-import ReactReduxTest from './components/ReactReduxTest'
-import ReactReduxTestTwo from './components/ReactReduxTestTwo'
-import ReactReduxTestThree from './components/ReactReduxTestThree'
+import ReactReduxTest from "./components/ReactReduxTest";
+import ReactReduxTestTwo from "./components/ReactReduxTestTwo";
+import ReactReduxTestThree from "./components/ReactReduxTestThree";
 // import RouteOne from './components/RouteSample/RouteOne'
-import RouteSwitch from './components/RouteSample/RouteSwitch'
+import RouteSwitch from "./components/RouteSample/RouteSwitch";
 
+import ReactVirtualizedLoader from "./routes/react-virtualized/Loader";
 
 // import logo from './logo.svg';
 
-import './App.css';
+import "./index.css";
 
 class App extends Component {
-
   test = () => {
-    console.log('script start')
+    console.log("script start");
 
-    async function async1 () {
-      console.log('async1 start')
-      await async2()
-      console.log('async1 end')
+    async function async1() {
+      console.log("async1 start");
+      await async2();
+      console.log("async1 end");
     }
 
-    async function async2 () {
-      console.log('async2 end')
+    async function async2() {
+      console.log("async2 end");
     }
 
-    async1()
+    async1();
 
     setTimeout(() => {
-    console.log('setTimeout')
-    }, 0)
+      console.log("setTimeout");
+    }, 0);
 
     new Promise(resolve => {
-      console.log('promise')
-      resolve()
-    }).then(() => {
-      console.log('promise1')
-    }).then(() => {
-      console.log('promise2')
+      console.log("promise");
+      resolve();
     })
+      .then(() => {
+        console.log("promise1");
+      })
+      .then(() => {
+        console.log("promise2");
+      });
 
     // Promise.resolve().then(() => {
     //   console.log('promise1')
@@ -54,30 +57,38 @@ class App extends Component {
     //   console.log('promise2')
     // })
 
-    console.log('script end')
-  }
+    console.log("script end");
+  };
 
   render() {
     // this.test()
     return (
       <div className="App">
-        <header className="App-header">
+        <ReactVirtualizedLoader />
+        {/* <header className="App-header">
           <RouteSwitch />
-          {/*<RouteOne />*/}
-          <ReactReduxTestThree />
+          <Link to="/react-virtualized">react-virtualized</Link>
+          <Switch>
+            <Route
+              path="/react-virtualized"
+              component={ReactVirtualizedLoader}
+            />
+          </Switch> */}
+        {/*<RouteOne />*/}
+        {/* <ReactReduxTestThree />
           <ReactReduxTestTwo />
-          <ReactReduxTest />
-          {/*<ReduxTest />*/}
-          <HOC tempName='hoc' />
+          <ReactReduxTest /> */}
+        {/*<ReduxTest />*/}
+        {/* <HOC tempName="hoc" />
           <Composition />
           <ProviderContext />
           <CrossLayProvider />
-          <CrossLayProviderFn />
-          <p>
+          <CrossLayProviderFn /> */}
+        {/* <p>
             <Button>btn</Button>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-        </header>
+        </header> */}
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import Root from './Root'
 
-import Home from './Home'
+import Home from './Home/testOne/testMenus'
 import About from './About'
 import Login from './Login'
 

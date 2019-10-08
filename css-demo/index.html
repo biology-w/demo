@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<style>
+    .container:after {
+        content: ' 1233';
+        display: block;
+
+    }
+
+    /* 伪类选择器 */
+    .name {
+        display: inline-block;
+    }
+
+    .name:first-letter {
+        background: red;
+    }
+
+    .name::selection {
+        color: blue;
+        background-color: rebeccapurple;
+    }
+
+    .one {
+        width: 90px;
+        margin: 0 auto;
+    }
+
+    .two {
+        text-align: center;
+        background: red;
+    }
+
+    .three {
+        display: inline-block;
+        text-align: left;
+        background: blue;
+        word-break: break-all
+    }
+
+    .special {
+        width: 0;
+        display: inline-block;
+    }
+
+    .special::before {
+        content: "wo 你 love";
+        outline: 1px solid red;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div class="special"></div>
+    <div class="one">
+        <div class="two">
+            <span class="three">weiwewewwewewewewfasdf</span>
+        </div>
+    </div>
+    <span class="name">weijunwei</span>
+    <span>afsdfsfsd</span>
+    <p class="container">
+        adsfad
+        <img src="./assets/images/1.png" alt="">
+    </p>
+</body>
