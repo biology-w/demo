@@ -1,11 +1,29 @@
 const path = require('path')
+const glob = require('glob')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+function getEntries(globalPath) {
+  const files = glob.sync(globalPath)
+  const entries = {}
+  
+  files.forEach(filepath => {
+    const paths = filepath.split('/');
+    const name = paths[paths.length - 2];
+    entries[name] = `./src/pages/${name}/index.tsx`
+  })
+  return entries;
+}
+
+/**
+ *eg: { about: './src/pages/about/index.tsx',
+ *      contact: './src/pages/contact/index.tsx',
+  *     join: './src/pages/join/index.tsx' }
+ */
+const entries = getEntries('src/pages/**/index.tsx');
+
 module.exports = {
-  entry: {
-    app: './src/App.js'
-  },
+  entry: entries,
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
   },

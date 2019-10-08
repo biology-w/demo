@@ -43,6 +43,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "glob": "^7.1.4",
     "lodash": "^4.17.11",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
