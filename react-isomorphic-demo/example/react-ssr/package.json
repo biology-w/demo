@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jsonp": "^0.2.1",
     "loadable-components": "^2.2.3",
     "react": "^16.5.2",
