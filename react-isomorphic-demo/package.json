@@ -33,6 +33,6 @@
     "nodemon": "^1.17.5",
     "parallelshell": "^3.0.2",
     "webpack": "^4.12.1",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.3.12"
   }
 }
